@@ -1,0 +1,29 @@
+<!--
+    1. 자바스크립트의 실행 환경은? 웹브라우저, node,js 등
+    2. 자바스크립트가 브라우저에서 컴파일없이 실행가능한 이유는? 인터프리터 언어
+    3. 변수 선언 키워드? let, const(상수), var
+    4. 자료형? number, string, boolean, object, undefined
+    5. 변수의 타입은 언제 결정되나요? 대입 연산 시 동적
+    6. 함수 선언 방법? function, arrow
+    7. Hosting? 스크립트 실행 전, 전역 객체에 할당되는 var, function
+    8. callback 함수? 함수 내부에서 호출할 함수를 파라미터로 전달받는 형태
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body></body>
+  <script>
+    function printHello() {
+      console.log("헬로 월드");
+    }
+    // setTimeout(printHello, 3000);
+    let num = setInterval(printHello, 1000);
+
+    clearInterval(num);
+  </script>
+</html>

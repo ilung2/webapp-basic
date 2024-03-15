@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    
+</body>
+<script>
+    function inner() {
+        var v = 100; // 함수안에서 선언하면 지역변수
+    }
+    // console.log(v);
+
+    {
+        let a = 10;
+        const b = 20; // 상수 선언
+        // b = 30; 값 변경시 에러
+        c = 30; // 변수 var로 만들어짐
+
+        console.log(a);
+        console.log(b);
+        console.log(c);
+
+        // var c; // hoisting
+    }
+    // console.log(a); // let const는 범위 안에서만 가능
+    console.log("var로 선언된 c의 값:", c);
+</script>
+</html>

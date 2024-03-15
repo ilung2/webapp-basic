@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <style>
+      button {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+      }
+    </style>
+    </head>
+  <body>
+    <button id="startBtn">시작</button>
+    <button id="stopBtn">정지</button>
+    <p id="num">0</p>
+  </body>
+  <script>
+    let startBtn = window.document.getElementById("startBtn");
+    let numP = document.getElementById("num");
+    let num = 0;
+    let intervalId;
+
+    function startNumber() {
+      num++;
+      numP.textContent = num;
+    }
+
+    function stopNumber() {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+
+    startBtn.addEventListener("click", function (e) {
+      if (!intervalId) {
+        intervalId = setInterval(startNumber, 500);
+      }
+    });
+
+    stopBtn.addEventListener("click" , stopNumber)
+  </script>
+</html>
