@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      p {
+      }
+      a {
+        text-decoration: none;
+      }
+      a:link {
+        color: red;
+      }
+      a:visited {
+        color: coral;
+      }
+      label:has(input:checked) {
+        color: rgb(231, 57, 179);
+      }
+      input[type="checkbox"] {
+        /* display: none; */
+        visibility: hidden;
+      }
+      button:hover {
+        background-color: darkorange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>TEXT</p>
+      <a href="#">LINK</a>
+      <button>버튼</button>
+      <label><input type="checkbox" />체크박스</label>
+      <label><input type="radio" />라디오버튼</label>
+    </div>
+  </body>
+</html>
