@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.core.JsonParseException;
+
 @WebServlet("/myerrorpage")
 public class MyErrorServlet extends HttpServlet {
 	@Override
@@ -18,6 +20,10 @@ public class MyErrorServlet extends HttpServlet {
 		
 		Exception e = (Exception) req.getAttribute(RequestDispatcher.ERROR_EXCEPTION);
 		System.out.println("예외 객체에 접근해 메시지 출력: " + e.getMessage());
+		
+		if (e instanceof JsonParseException) {
+			// ...
+		}
 		
 		resp.setStatus(400);
 		resp.setContentType("text/plain; charset=utf-8");
