@@ -49,7 +49,7 @@ public class TestCarAPI {
 		
 		return sb.toString();
 	}
-	
+
 	public static HttpURLConnection connect(String urlStr) {
 		try {
 			URL url = new URL(urlStr);

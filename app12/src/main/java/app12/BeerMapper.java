@@ -31,16 +31,16 @@ public interface BeerMapper {
 			return sql.toString();
 		}
 		
-		public static String betweenPrice(Integer arg0, Integer arg1) {
+		public static String betweenPrice(Integer low, Integer high) {
 			return new SQL() {{
 				SELECT("*");
 				FROM("beer");
-				if (arg0 != null && arg1 != null) {
-					WHERE("price BETWEEN #{arg0} AND #{arg1}");
-				} else if (arg0 == null) {
-					WHERE("price <= #{arg1}");
-				} else if (arg1 == null) {
-					WHERE("price >= #{arg0}");
+				if (low != null && high != null) {
+					WHERE("price BETWEEN #{low} AND #{high}");
+				} else if (low == null) {
+					WHERE("price <= #{high}");
+				} else if (high == null) {
+					WHERE("price >= #{low}");
 				}
 			}}.toString();
 		}
@@ -48,7 +48,7 @@ public interface BeerMapper {
 	
 	@SelectProvider(type = BeerSelectProvider.class, method="betweenPrice")
 	@ResultMap("beerResultMap")
-	List<Beer> getBetween(Integer arg0, Integer arg1);
+	List<Beer> getBetween(@Param(value = "low") Integer low, @Param(value = "high") Integer high);
 	
 	@SelectProvider(type = BeerSelectProvider.class, method = "orderBy")
 	@ResultMap("beerResultMap")
@@ -78,7 +78,7 @@ public interface BeerMapper {
 	int insert(Beer beer);
 	
 	@Delete("DELETE FROM beer WHERE id = #{id}")
-	int delete(Integer id);
+	int delete(@Param(value = "id") Integer id);
 	
 	@Update("UPDATE beer SET name = #{name}, price = #{price} WHERE id = #{id}")
 	int update(Beer beer);

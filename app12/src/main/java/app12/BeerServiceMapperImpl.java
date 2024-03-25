@@ -96,4 +96,10 @@ public class BeerServiceMapperImpl implements IBeerService {
 	}
 }
 
-	
+
+
+
+
+
+
+

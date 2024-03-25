@@ -16,6 +16,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
 import app12.BeerMapper;
+import app12.person.PersonMapper;
 
 public class MyWebContextListener implements ServletContextListener {
 	private static DataSource dataSource;
@@ -28,6 +29,7 @@ public class MyWebContextListener implements ServletContextListener {
 		Environment environment = new Environment("dev", jdbcTransactionFactory, dataSource);
 		Configuration configuration = new Configuration(environment);
 		configuration.addMapper(BeerMapper.class);
+		configuration.addMapper(PersonMapper.class);
 		factory = new SqlSessionFactoryBuilder().build(configuration);
 	}
 

@@ -15,6 +15,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+import static app12.ServletUtil.*;
+
 // TODO: API 전역에서 request encoding 설정 필요
 @WebServlet(name = "BeerAPIServlet"
 	, urlPatterns =  { "/api/beer", "/api/beer/*" })
@@ -39,7 +41,6 @@ public class BeerAPIServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 사용자에게 맥주 정보(json 포맷)를 전달받아
-		req.setCharacterEncoding("UTF-8");
 		String body = readBody(req);
 		
 		Beer beer = mapper.readValue(body, Beer.class); // TODO: 유효하지 않은 JSON 포맷인 경우, 응답 전송
@@ -142,17 +143,6 @@ public class BeerAPIServlet extends HttpServlet {
 		objectNode.put("message", stringMessage);
 		String json = mapper.writeValueAsString(objectNode);
 		return json;
-	}
-
-	private String readBody(HttpServletRequest req) throws IOException {
-		StringBuilder sb = new StringBuilder();
-		try (BufferedReader reader = req.getReader();) {
-			String line;
-			while ((line = reader.readLine()) != null) {
-				sb.append(line);
-			}
-		}
-		return sb.toString();
 	}
 }
 

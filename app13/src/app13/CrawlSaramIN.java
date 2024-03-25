@@ -11,7 +11,7 @@ import org.jsoup.select.Elements;
 
 public class CrawlSaramIN {
 	private static Set<String> getLinks(String page) throws IOException {
-		String url = "https://www.saramin.co.kr/zf_user/search?searchType=search&searchword=java&recruitPageCount=20&recruitPage=" 
+		String url = "https://www.saramin.co.kr/zf_user/search?searchType=search&searchword=java&recruitPageCount=20&recruitPage="
 				+ page;
 		
 		Document document = Jsoup.connect(url).timeout(3000).get();
@@ -27,7 +27,7 @@ public class CrawlSaramIN {
 		}
 		return urls;
 	}
-	
+
 	private static String getJobInfo(String documentUrl) throws IOException {
 		Document document = Jsoup.connect(documentUrl).timeout(3000).get();
 		String jobInfo = document.select("meta[name=description]").first().attr("content");
@@ -42,3 +42,8 @@ public class CrawlSaramIN {
 		}
 	}
 }
+
+
+
+
+

@@ -8,4 +8,9 @@
   <listener>
   	<listener-class>app12.listener.MyWebContextListener</listener-class>
   </listener>
+  
+  <error-page>
+  	<exception-type>com.fasterxml.jackson.core.JsonParseException</exception-type>
+  	<location>/myerrorpage</location>
+  </error-page>
 </web-app>

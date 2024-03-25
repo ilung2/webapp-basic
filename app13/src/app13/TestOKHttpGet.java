@@ -6,11 +6,11 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class TestOKHttpGet {
+public class TestOkHttpGet {
 	public static void main(String[] args) {
-		String url = "https://webhook.site/4d6fd713-c1fc-4fbf-a50a-4ed4733077a4";
+		String url = "https://webhook.site/ad240b4d-8b52-4cc9-bb3c-e28827045654";
 		
-		OkHttpClient client = new OkHttpClient(); // 모든걸 객체 구성
+		OkHttpClient client = new OkHttpClient();
 		Request request = new Request.Builder()
 									.url(url)
 									.build();
